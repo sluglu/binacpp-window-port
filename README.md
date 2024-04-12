@@ -4,6 +4,7 @@
 Switched to nlohmann/json for JSON parsing, replaced POSIX functions with Windows equivalents, and implemented CMake for the build system.
 
 #### Dependencies
+dependencies need to be installed separately, you can install them using vcpkg.
 
 	libcurl-7.56.0
 	libwebsockets-2.4.0
