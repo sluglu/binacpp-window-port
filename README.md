@@ -18,6 +18,8 @@ dependencies need to be installed separately, you can install them using vcpkg.
 	#include "binacpp_websocket.h"
 	#include "json.hpp"
 
+ 	using json = nlohmann::json;
+
 
 #### Init
 	string api_key 		= API_KEY;
@@ -27,12 +29,12 @@ dependencies need to be installed separately, you can install them using vcpkg.
 ---
 #### Example : Get Server Time.
 	
-	Json::Value result;
+	json result;
 	BinaCPP::get_serverTime( result ) ;
 
 #### Example : Get all Prices
 
-	Json::Value result;
+	json result;
 	BinaCPP::get_allPrices( result );
 
 #### Example: Get price of single pair. Eg: BNBETH
@@ -41,82 +43,82 @@ dependencies need to be installed separately, you can install them using vcpkg.
 
 #### Example: Get Account 
 	
-	Json::Value result;
+	json result;
 	long recvWindow = 10000;	
 	BinaCPP::get_account( recvWindow , result );
 
 #### Example : Get all bid/ask prices
 	
-	Json::Value result;
+	json result;
 	BinaCPP::get_allBookTickers( result );
 
 #### Example: Get bid/ask for single pair
 	
-	Json::Value result;
+	json result;
 	BinaCPP::get_bookTicker("bnbeth", result );
 	
 #### Example: Get Depth of single pair
 	
-	Json::Value result;
+	json result;
 	BinaCPP::get_depth( "ETHBTC", 5, result ) ;
 	
 
 #### Example: Placing a LIMIT order
 	
 	long recvWindow = 10000;	
-	Json::Value result;
+	json result;
 	BinaCPP::send_order( "BNBETH", "BUY", "LIMIT", "GTC", 20 , 0.00380000, "",0,0, recvWindow, result );
 
 #### Example: Placing a MARKET order
 
 	long recvWindow = 10000;
-	Json::Value result;
+	json result;
 	BinaCPP::send_order( "BNBETH", "BUY", "MARKET", "GTC", 20 , 0,   "",0,0, recvWindow, result );
 
 #### Example: Placing an ICEBERG order
 	
 	long recvWindow = 10000;
-	Json::Value result;
+	json result;
 	BinaCPP::send_order( "BNBETH", "BUY", "MARKET", "GTC", 1 , 0,   "",0,20, recvWindow , result );
 
 #### Example: Check an order's status
 
 	long recvWindow = 10000;
-	Json::Value result;
+	json result;
 	BinaCPP::get_order( "BNBETH", 12345678, "", recvWindow, result );
 
 #### Example: Cancel an order
 
 	long recvWindow = 10000;
-	Json::Value result;
+	json result;
 	BinaCPP::cancel_order("BNBETH", 12345678, "","", recvWindow, result);
 
 #### Example: Getting list of open orders for specific pair
 	
 	long recvWindow = 10000;
-	Json::Value result;
+	json result;
 	BinaCPP::get_openOrders( "BNBETH", recvWindow, result ) ;
 
 #### Example: Get all account orders; active, canceled, or filled.
 	
 	long recvWindow = 10000;
-	Json::Value result;
+	json result;
 	BinaCPP::get_allOrders( "BNBETH", 0,0, recvWindow, result ) 
 
 #### Example : Get all trades history
 	
 	long recvWindow = 10000;
-	Json::Value result;
+	json result;
 	BinaCPP::get_myTrades( "BNBETH", 0,0, recvWindow , result );
 
 #### Example: Getting 24hr ticker price change statistics for a symbol
 	
-	Json::Value result;
+	json result;
 	BinaCPP::get_24hr( "ETHBTC", result ) ;
 
 #### Example: Get Kline/candlestick data for a symbol
 	
-	Json::Value result;
+	json result;
 	BinaCPP::get_klines( "ETHBTC", "1h", 10 , 0, 0, result );
 
 ---
