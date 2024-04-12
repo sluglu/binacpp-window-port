@@ -96,7 +96,6 @@ BinaCPP::get_allPrices( json &json_result )
 	if ( str_result.size() > 0 ) {
 		
 		try {
-			//Json::Reader reader;
 			json_result.clear();	
 			json json_result = json::parse(str_result);
 	    		
@@ -169,7 +168,7 @@ BinaCPP::get_allBookTickers(  json &json_result )
 		
 		try {
 			json_result.clear();	
-	    	json json_result = json::parse(str_result);
+	    		json json_result = json::parse(str_result);
 	    		
 	    	} catch ( exception &e ) {
 		 	BinaCPP_logger::write_log( "<BinaCPP::get_allBookTickers> Error ! %s", e.what() ); 
@@ -244,7 +243,7 @@ BinaCPP::get_depth(
 		
 		try {
 			json_result.clear();	
-	    	json json_result = json::parse(str_result);
+	    		json json_result = json::parse(str_result);
 	    		
 		} catch ( exception &e ) {
 		 	BinaCPP_logger::write_log( "<BinaCPP::get_depth> Error ! %s", e.what() ); 
@@ -322,7 +321,7 @@ BinaCPP::get_aggTrades(
 		
 		try {
 			json_result.clear();	
-	    	json json_result = json::parse(str_result);
+	    		json json_result = json::parse(str_result);
 	    		
 		} catch ( exception &e ) {
 		 	BinaCPP_logger::write_log( "<BinaCPP::get_aggTrades> Error ! %s", e.what() ); 
@@ -372,7 +371,7 @@ BinaCPP::get_24hr( const char *symbol, json &json_result )
 		
 		try {
 			json_result.clear();	
-	    	json json_result = json::parse(str_result);
+	    		json json_result = json::parse(str_result);
 	    		
 		} catch ( exception &e ) {
 		 	BinaCPP_logger::write_log( "<BinaCPP::get_24hr> Error ! %s", e.what() ); 
@@ -447,7 +446,7 @@ BinaCPP::get_klines(
 	if ( str_result.size() > 0 ) {
 		
 		try {
-	    	json_result.clear();	
+	    		json_result.clear();	
 			json json_result = json::parse(str_result);
 	    		
 		} catch ( exception &e ) {
