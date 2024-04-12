@@ -1,87 +1,13 @@
 
-# Binance C++ API
+# Binance C++ API for window
 
-#### Installation
-    git clone https://github.com/tensaix2j/binacpp    
+Switched to nlohmann/json for JSON parsing, replaced POSIX functions with Windows equivalents, and implemented CMake for the build system.
 
 #### Dependencies
-	
-	jsoncpp-1.8.3
+
 	libcurl-7.56.0
 	libwebsockets-2.4.0
 
-
-
-Depended shared libraries and their headers are included in the repository's lib directory 
-
-use -I<include path> to include header paths for compiler to look for headers 
-
-and -L<lib path> and -l<libname> for linker to link against shared libraries.
-
-	libcurl_dir=../lib/libcurl-7.56.0
-	libcurl_include=${libcurl_dir}/include
-	libcurl_lib=${libcurl_dir}/lib
-	
-	jsoncpp_dir=../lib/jsoncpp-1.8.3
-	jsoncpp_include=${jsoncpp_dir}/include
-	jsoncpp_src=${jsoncpp_dir}/src
-	
-	libwebsockets_dir=../lib/libwebsockets-2.4.0
-	libwebsockets_include=${libwebsockets_dir}/include
-	libwebsockets_lib=${libwebsockets_dir}/lib
-	
-	libbinacpp_dir=../lib/libbinacpp
-	libbinacpp_include=${libbinacpp_dir}/include
-	libbinacpp_lib=${libbinacpp_dir}/lib
-
-
-
-.
-Then compile like this:
-
-
-	g++ -I$(libcurl_include) -I$(jsoncpp_include) -I$(libwebsockets_include) -I$(libbinacpp_include) \
-	example.cpp \
-	-L$(libcurl_lib) \
-	-L$(libwebsockets_lib) \
-	-L$(libbinacpp_lib) \
-	-lcurl -lcrypto -lwebsockets -lbinacpp -o example
-
-
-
-
-
-And export LD\_LIBRARY\_PATH and run like this:
-
-	libcurl_dir=../lib/libcurl-7.56.0
-	libcurl_lib=${libcurl_dir}/lib
-
-	libwebsockets_dir=../lib/libwebsockets-2.4.0
-	libwebsockets_lib=${libwebsockets_dir}/lib
-
-	libbinacpp_dir=../lib/libbinacpp
-	libbinacpp_lib=${libbinacpp_dir}/lib
-
-	export SSL_CERT_FILE=`pwd`/cacert.pem
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$libcurl_lib:$libwebsockets_lib:$libbinacpp_lib
-
-	./example 
-
-
-
-
-
-You can refer to the following Makefile to get a better picture...
-
-	https://github.com/tensaix2j/binacpp/blob/master/example/Makefile
-
-
-#### To Build Example
-	
-	cd example
-	make example
-
----
 ## Coding with libBinaCPP
 
 #### Headers to include
