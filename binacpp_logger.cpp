@@ -23,13 +23,13 @@ BinaCPP_logger::write_log( const char *fmt, ... )
     
     char new_fmt[1024];
     
-    struct timeval tv;
-    gettimeofday(&tv, NULL); 
-    time_t t = tv.tv_sec;
+    SYSTEMTIME tv;
+    GetLocalTime(&tv);
+    time_t t = tv.wSecond;
     struct tm * now = localtime( &t );
 
 
-    sprintf( new_fmt , "%04d-%02d-%02d %02d:%02d:%02d %06ld :%s\n" , now->tm_year + 1900, now->tm_mon + 1, now->tm_mday, now->tm_hour, now->tm_min, now->tm_sec , tv.tv_usec , fmt );
+    sprintf( new_fmt , "%04d-%02d-%02d %02d:%02d:%02d %06ld :%s\n" , now->tm_year + 1900, now->tm_mon + 1, now->tm_mday, now->tm_hour, now->tm_min, now->tm_sec , tv.wSecond , fmt );
 
     va_start (arg, fmt);
     

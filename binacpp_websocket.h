@@ -12,7 +12,7 @@
 #include <vector>
 #include <exception>
 
-#include <json/json.h>
+#include "json.hpp"
 #include <libwebsockets.h>
 
 
@@ -20,9 +20,13 @@
 #define BINANCE_WS_PORT 9443
 
 
+
 using namespace std;
 
-typedef int (*CB)(Json::Value &json_value );
+using json = nlohmann::json;
+
+typedef int (*CB)(json &json_value );
+
 
 
 class BinaCPP_websocket {

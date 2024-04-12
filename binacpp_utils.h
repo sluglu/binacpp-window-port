@@ -3,14 +3,18 @@
 #ifndef BINACPP_UTILS
 #define BINACPP_UTILS
 
-#include <unistd.h>
+#include <io.h>
 #include <string>
 #include <sstream>
 #include <vector>
 #include <string.h>
-#include <sys/time.h>
+#include <time.h>
 #include <openssl/hmac.h>
 #include <openssl/sha.h>
+#include <iostream>
+
+#include <windows.h>
+
 
 using namespace std;
 
@@ -23,18 +27,10 @@ string b2a_hex( char *byte_arr, int n );
 time_t get_current_epoch();
 unsigned long get_current_ms_epoch();
 
-//--------------------
-template <class T>
-inline string to_string (const T& t)
-{
-    stringstream ss;
-    ss << t;
-    return ss.str();
-}
 
 //--------------------
 inline bool file_exists (const std::string& name) {
- 	 return ( access( name.c_str(), F_OK ) != -1 );
+ 	 return ( _access( name.c_str(), 0) != -1 );
 }
 
 string hmac_sha256( const char *key, const char *data);

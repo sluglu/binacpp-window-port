@@ -76,19 +76,19 @@ string b2a_hex( char *byte_arr, int n ) {
 //---------------------------------
 time_t get_current_epoch( ) {
 
-    struct timeval tv;
-    gettimeofday(&tv, NULL); 
+    SYSTEMTIME tv;
+    GetLocalTime(&tv);
 
-    return tv.tv_sec ;
+    return tv.wSecond ;
 }
 
 //---------------------------------
 unsigned long get_current_ms_epoch( ) {
 
-    struct timeval tv;
-    gettimeofday(&tv, NULL); 
+    SYSTEMTIME tv;
+    GetLocalTime(&tv);
 
-    return tv.tv_sec * 1000 + tv.tv_usec / 1000 ;
+    return tv.wSecond * 1000 + tv.wMilliseconds / 1000000 ;
 
 }
 
