@@ -150,7 +150,7 @@ dependencies need to be installed separately, you can install them using vcpkg.
 
 	BinaCPP::start_userDataStream(result );
 	string ws_path = string("/ws/");
-	ws_path.append( result["listenKey"].asString() );
+	ws_path.append( result["listenKey"].get<std::string>() );
 
 
 	BinaCPP_websocket::init();
