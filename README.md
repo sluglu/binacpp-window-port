@@ -1,6 +1,7 @@
 
 # Binance C++ API for window
 
+binacpp window port :
 Switched to nlohmann/json for JSON parsing, replaced POSIX functions with Windows equivalents, and implemented CMake for the build system.
 
 #### Dependencies
