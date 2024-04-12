@@ -61,8 +61,7 @@ BinaCPP::get_serverTime( json &json_result)
 	if ( str_result.size() > 0 ) {
 		
 		try {
-			//Json::Reader reader;
-			//json_result.clear();	
+			json_result.clear();	
 			json json_result = json::parse(str_result);
 	    		
 		} catch ( exception &e ) {
@@ -98,7 +97,7 @@ BinaCPP::get_allPrices( json &json_result )
 		
 		try {
 			//Json::Reader reader;
-			//json_result.clear();	
+			json_result.clear();	
 			json json_result = json::parse(str_result);
 	    		
 		} catch ( exception &e ) {
